@@ -1,0 +1,556 @@
+body, html, input, select, textarea, button, a {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    accent-color: #ac2828;
+}
+
+body {
+    margin: 0;
+    /* Main body text color set to the deep green/grey */
+    color: #20392e; 
+    background-color: #ffffff;
+    
+    /* MODIFIED: Reduced padding-top slightly from 92px to 86px (A common fixed header height for top bar + nav)
+       This often fixes small alignment issues caused by pixel differences in fixed element heights. */
+    padding-top: 86px; 
+}
+
+/* Define the primary blue color palette */
+:root {
+    --primary-blue: #008CEE; /* The original deep blue */
+    --accent-blue: #4978e7; /* Darker blue for hover/selected */
+    --dark-accent: #20392e; /* Deep forest green/grey for strong contrast */
+    --background-light: #F5F5F5; /* Light Grey background for sections */
+}
+
+a {
+    color: var(--primary-blue); /* Links are the primary blue */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.wrapper > div, .modal-container, .ticket h2 a {
+    color: var(--dark-accent); /* Content text is the dark accent */
+}
+
+/* Header Styles */
+header.inverted-colors {
+    background-color: var(--dark-accent); 
+    color: white;
+    padding: 6px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
+}
+.TopNavigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px; /* Added padding for spacing on mobile */
+}
+.social-sharing {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.social-sharing a svg {
+    fill: #fff !important;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.social-sharing a:hover {
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.signin {
+    color: white;
+    margin-left: 15px;
+}
+
+/* Main Navigation */
+.main-nav {
+    background-color: var(--primary-blue); /* Primary Blue for Nav Bar */
+    position: fixed;
+    top: 32px;
+    left: 0;
+    width: 75%;
+    z-index: 1000;
+    margin-left: 190px;
+}
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.nav-block {
+    display: flex;
+}
+
+.main-nav a {
+    color: white;
+    padding: 15px 20px;
+    display: inline-block;
+}
+
+.main-nav a.selected, .main-nav a:hover {
+    background-color: var(--accent-blue); /* Original Hover/Selected Blue */
+}
+
+/* Banner */
+.banner {
+    /* MODIFIED: Resetting banner margin-top to 0. 
+       The banner should start exactly where the body content flow begins (at 86px). 
+       The previous negative margin was conflicting with your desired position. */
+    margin-top: 0 !important; 
+    
+    position: relative;
+    background-color: #fff;
+    color: white;
+    text-align: center;
+    padding: 0;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    border: none;
+}
+
+.banner img {
+    max-width: 75%;
+    height: auto;
+    margin-bottom: 0 !important;
+    display: block;
+    padding-bottom: 0 !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -5px;
+}
+
+.summary {
+    background-color: var(--primary-blue); /* Primary Blue for Summary Box */
+    color: white;
+    padding: 5px 0;
+    max-width: 75%;
+    margin: 0 auto !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-radius: 0;
+}
+
+.summary h2 {
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 0 !important;
+}
+
+.inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 25px 5px;
+}
+
+.summary-main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.desc {
+    flex: 2;
+    min-width: 300px;
+    margin-right: 30px;
+}
+
+.data {
+    flex: 1;
+    min-width: 250px;
+}
+
+.date, .location, .share {
+    margin-bottom: 25px;
+}
+
+/* Agenda */
+.agenda {
+    padding: 40px 0;
+    background-color: var(--background-light); 
+}
+
+.agenda h2 {
+    color: var(--primary-blue); /* Headings in Primary Blue */
+    margin-bottom: 20px;
+}
+
+.agenda-container {
+    display: block; 
+    overflow-x: hidden; 
+}
+
+.agenda-container ul {
+    display: block; 
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.agenda-container li {
+    flex: 0 0 auto;
+    width: 100%; 
+    max-width: 900px; 
+    margin-right: 0; 
+    margin-bottom: 20px;
+}
+
+.agenda-container dl {
+    margin: 0;
+}
+
+.agenda-container dt {
+    color: var(--primary-blue); 
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+/* Base style for agenda content */
+.agenda-content {
+    background-color: #e6f7ff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Alternating Background Colors for Agenda Content */
+.agenda-container li:nth-child(odd) .agenda-content {
+    background-color: #f0f8ff; 
+}
+
+.agenda-container li:nth-child(even) .agenda-content {
+    background-color: #e6f7ff; 
+}
+
+.agenda-time {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--dark-accent);
+}
+
+.agenda-item-break {
+    background-color: #b3e5fc !important;
+    color: var(--dark-accent);
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Speakers */
+.speaker {
+    padding: 40px 0;
+    background-color: #ffffff; 
+    border-top: 1px solid #e0e0e0;
+}
+
+.speaker h2 {
+    color: var(--primary-blue); 
+    margin-bottom: 20px;
+}
+
+.speakers-module {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0 -15px;
+}
+
+.speakers-module li {
+    /* MODIFIED: Default to a 4-5 column layout on large screens */
+    flex: 1 0 20%; 
+    margin: 0 15px 30px;
+    text-align: center;
+}
+
+.person-representation {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 15px;
+    background-color: #e6f7ff;
+}
+
+.person-representation img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.speakers-module h3 {
+    margin: 10px 0 5px;
+    font-size: 1.1rem;
+}
+
+.speakers-module h4 {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+    font-weight: normal;
+}
+
+/* Sponsors */
+.sponsor {
+    padding: 40px 0;
+    background-color: var(--background-light); 
+}
+
+.sponsor h2 {
+    color: var(--primary-blue); 
+    margin-bottom: 20px;
+}
+
+.group-title {
+    font-weight: bold;
+    margin: 25px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.sponsors-partners-module {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0 -15px;
+}
+
+.sponsors-partners-module li {
+    flex: 0 0 auto;
+    margin: 0 15px 20px;
+}
+
+.sponsors-partners-module img {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Tickets */
+.ticket {
+    padding: 40px 0;
+    background-color: #ffffff; 
+    border-top: 1px solid #e0e0e0;
+}
+
+.ticket h2 {
+    color: var(--primary-blue); 
+    margin-bottom: 20px;
+}
+
+.tickets-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.tickets-container dl {
+    flex: 1 0 250px;
+    margin: 0 15px 30px;
+    background-color: var(--background-light); 
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+}
+
+.tickets-container dt {
+    color: var(--primary-blue); 
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #b3e5fc;
+}
+
+.tickets-container dd {
+    margin: 0 0 15px;
+}
+
+.price {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-accent); 
+    color: white;
+    padding: 40px 0;
+}
+
+.link-block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.gu-logo {
+    height: 30px;
+    margin-right: 15px;
+}
+
+.link-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.powered-by {
+    font-weight: bold;
+}
+
+.copy-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 15px; /* Added padding for spacing on mobile */
+}
+
+.copy-right a {
+    color: #81d4fa; 
+    margin-left: 15px;
+}
+
+/* ----------------------------------------------------------------- */
+/* RESPONSIVE IMPROVEMENTS - GENERAL & TABLET */
+/* ----------------------------------------------------------------- */
+
+@media (max-width: 992px) {
+    /* Tablet/Mid-Sized Screens: Show 3 speakers per row */
+    .speakers-module li {
+        flex: 1 0 calc(33.33% - 30px); /* 3 columns minus horizontal margin */
+    }
+}
+
+
+@media (max-width: 768px) {
+    /* 1. Header/Navigation Fixes */
+    body {
+        padding-top: 86px; 
+    }
+    
+    .main-nav {
+        width: 100%; 
+        margin-left: 0; 
+    }
+
+    .nav-block {
+        flex-wrap: wrap;
+        justify-content: space-around; 
+    }
+
+    .main-nav a {
+        padding: 10px 10px;
+        flex: 1 1 auto; 
+        text-align: center;
+        font-size: 0.9rem;
+    }
+    
+    /* 2. Banner/Summary Fixes */
+    .banner img, .summary {
+        max-width: 100%; 
+        margin-top: 20px;
+    }
+    
+    .summary-main {
+        flex-direction: column;
+    }
+
+    .desc {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .data {
+        min-width: 100%; 
+    }
+
+    .inner {
+        padding: 25px 15px; 
+    }
+
+    /* 3. Speakers Module Fixes - FORCING ONE SPEAKER PER LINE */
+    .speakers-module li {
+        flex: 1 0 100%; /* Forces speaker to take full width */
+        margin: 0 0 30px 0; /* Centered margin/padding works better with 100% width */
+    }
+    
+    /* 4. Tickets Module Fixes */
+    .tickets-container dl {
+        flex: 1 0 100%; 
+        margin: 0 0 20px 0; 
+        padding: 15px;
+    }
+    
+    .tickets-container {
+        margin: 0; 
+        flex-direction: column;
+    }
+
+    /* 5. Agenda (Re-confirmed) */
+    .agenda-container li {
+        width: 100%;
+        margin-right: 0;
+        max-width: none; 
+    }
+}
+
+@media (max-width: 576px) {
+    /* Extra Small Screens (Phones): No change needed here, inherits 100% width from 768px rule */
+    /* Removed the conflicting 50% rule */
+}
+/* Add this to your styles.css file */
+
+/* ----------------------------------------------------------------- */
+/* Scroll-Spy and Anchor Fix */
+/* ----------------------------------------------------------------- */
+
+/* Use the IDs of your main content sections for anchor targeting */
+#home,
+#agenda,
+#speakers,
+#sponsors {
+    /* This creates space at the top of the section equal to the height of your fixed header (Top bar + Nav bar)
+       so the fixed navigation bar doesn't cover the heading when an anchor link is clicked. */
+    scroll-margin-top: 96px; 
+}
+
+/* Ensure your nav links use the new class for targeting in JS, but the styling remains the same */
+.main-nav a.nav-link.selected, 
+.main-nav a.nav-link:hover {
+    background-color: var(--accent-blue); 
+}
+/* Ensure the desktop style is specific enough to avoid conflicts with JS */
+.main-nav a.nav-link {
+    color: white;
+    padding: 15px 20px;
+    display: inline-block;
+    text-align: center; 
+}
+
+
+/* All other existing CSS should remain as you had it, 
+   including the responsive media queries: */
+/* ... (Your existing CSS code here) ... */
