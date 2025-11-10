@@ -258,59 +258,97 @@ header.inverted-colors {
     text-align: center;
 }
 
-/* Speakers */
+/* ---------------- SPEAKER SECTION ---------------- */
 .speaker {
-    padding: 40px 0;
-    background-color: #ffffff; 
-    border-top: 1px solid #e0e0e0;
+  text-align: center;
+  padding: 60px 40px;
+  background-color: #ffffff;
 }
 
 .speaker h2 {
-    color: var(--primary-blue); 
-    margin-bottom: 20px;
+  color: #5da385;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.speaker hr {
+  width: 80%;
+  margin: 0 auto 40px;
+  border: 0;
+  height: 1px;
+  background-color: #ccc;
 }
 
 .speakers-module {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0 -15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 0;
+  list-style: none;
 }
 
 .speakers-module li {
-    /* MODIFIED: Default to a 4-5 column layout on large screens */
-    flex: 1 0 20%; 
-    margin: 0 15px 30px;
-    text-align: center;
+  flex: 1 1 200px;
+  max-width: 220px;
 }
 
 .person-representation {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 15px;
-    background-color: #e6f7ff;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 15px;
+  border: 2px solid #e0e0e0;
 }
 
 .person-representation img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .speakers-module h3 {
-    margin: 10px 0 5px;
-    font-size: 1.1rem;
+  font-size: 1rem;
+  color: #20392e;
+  margin-bottom: 5px;
 }
 
-.speakers-module h4 {
-    margin: 0;
-    font-size: 0.9rem;
-    color: var(--primary-blue);
-    font-weight: normal;
+.speakers-module p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #444;
+  margin: 0;
 }
+
+/* Responsive layout */
+@media (max-width: 992px) {
+  .speakers-module {
+    gap: 30px;
+  }
+  .person-representation {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (max-width: 768px) {
+  .speakers-module li {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 576px) {
+  .speakers-module li {
+    flex: 1 1 100%;
+  }
+  .person-representation {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
 
 /* Sponsors */
 .sponsor {
@@ -407,9 +445,13 @@ footer {
 }
 
 .gu-logo {
-    height: 30px;
-    margin-right: 15px;
+  max-width: 40px;     /* hard limit */
+  height: auto;         /* keeps aspect ratio */
+  margin-right: 15px;
+  display: block;
+  object-fit: contain;
 }
+
 
 .link-container {
     display: flex;
@@ -471,7 +513,7 @@ footer {
     /* 2. Banner/Summary Fixes */
     .banner img, .summary {
         max-width: 100%; 
-        margin-top: 20px;
+        margin-top: 40px;
     }
     
     .summary-main {
@@ -491,12 +533,6 @@ footer {
         padding: 25px 15px; 
     }
 
-    /* 3. Speakers Module Fixes - FORCING ONE SPEAKER PER LINE */
-    .speakers-module li {
-        flex: 1 0 100%; /* Forces speaker to take full width */
-        margin: 0 0 30px 0; /* Centered margin/padding works better with 100% width */
-    }
-    
     /* 4. Tickets Module Fixes */
     .tickets-container dl {
         flex: 1 0 100%; 
@@ -550,7 +586,3 @@ footer {
     text-align: center; 
 }
 
-
-/* All other existing CSS should remain as you had it, 
-   including the responsive media queries: */
-/* ... (Your existing CSS code here) ... */
