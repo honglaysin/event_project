@@ -1,264 +1,253 @@
+/* ================= GLOBAL ================= */
 body, html, input, select, textarea, button, a {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    accent-color: #ac2828;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  accent-color: #ac2828;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    margin: 0;
-    /* Main body text color set to the deep green/grey */
-    color: #20392e; 
-    background-color: #ffffff;
-    
-    /* MODIFIED: Reduced padding-top slightly from 92px to 86px (A common fixed header height for top bar + nav)
-       This often fixes small alignment issues caused by pixel differences in fixed element heights. */
-    padding-top: 86px; 
+  color: #20392e;
+  background-color: #ffffff;
+  padding-top: 86px; /* space for fixed header */
 }
 
-/* Define the primary blue color palette */
 :root {
-    --primary-blue: #008CEE; /* The original deep blue */
-    --accent-blue: #4978e7; /* Darker blue for hover/selected */
-    --dark-accent: #20392e; /* Deep forest green/grey for strong contrast */
-    --background-light: #F5F5F5; /* Light Grey background for sections */
+  --primary-blue: #10426D;
+  --accent-blue: #4978e7;
+  --dark-accent: #21242E;
+  --background-light: #F5F5F5;
+  --white-text: #FFFFFF;
 }
 
 a {
-    color: var(--primary-blue); /* Links are the primary blue */
-    text-decoration: none;
+  color: var(--primary-blue);
+  text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-.wrapper > div, .modal-container, .ticket h2 a {
-    color: var(--dark-accent); /* Content text is the dark accent */
-}
-
-/* Header Styles */
+/* ================= HEADER ================= */
 header.inverted-colors {
-    background-color: var(--dark-accent); 
-    color: white;
-    padding: 6px 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1001;
+  background-color: var(--dark-accent);
+  color: white;
+  padding: 8px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
 .TopNavigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 15px; /* Added padding for spacing on mobile */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
+
+/* ================= SOCIAL ICONS ================= */
 .social-sharing {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
+
 .social-sharing a svg {
-    fill: #fff !important;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  fill: #fff !important;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
 }
 
-.social-sharing a:hover {
-    background: rgba(255,255,255,0.15);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+.social-sharing a:hover svg {
+  transform: scale(1.2);
 }
 
-.right {
-    display: flex;
-    align-items: center;
-}
-
-.signin {
-    color: white;
-    margin-left: 15px;
-}
-
-/* Main Navigation */
+/* ================= MAIN NAV ================= */
 .main-nav {
-    background-color: var(--primary-blue); /* Primary Blue for Nav Bar */
-    position: fixed;
-    top: 32px;
-    left: 0;
-    width: 75%;
-    z-index: 1000;
-    margin-left: 190px;
-}
-.nav-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 15px;
+  background-color: var(--primary-blue);
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1100px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+  border-radius: 1px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .nav-block {
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
 }
 
 .main-nav a {
-    color: white;
-    padding: 15px 20px;
-    display: inline-block;
+  color: white;
+  padding: 12px 18px;
+  display: inline-block;
+  border-radius: 1px;
+  transition: background 0.3s ease;
 }
 
-.main-nav a.selected, .main-nav a:hover {
-    background-color: var(--accent-blue); /* Original Hover/Selected Blue */
+.main-nav a:hover,
+.main-nav a.selected {
+  background-color: var(--accent-blue);
 }
 
-/* Banner */
+/* Button on the right */
+.nav-container button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--accent-blue);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  border-radius: 5px;
+}
+
+.nav-container button img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* ================= BANNER ================= */
 .banner {
-    /* MODIFIED: Resetting banner margin-top to 0. 
-       The banner should start exactly where the body content flow begins (at 86px). 
-       The previous negative margin was conflicting with your desired position. */
-    margin-top: 0 !important; 
-    
-    position: relative;
-    background-color: #fff;
-    color: white;
-    text-align: center;
-    padding: 0;
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
-    border: none;
+  position: relative;
+  background-color: #fff;
+  text-align: center;
+  padding: 0;
+  margin-bottom: 0 !important;
 }
 
 .banner img {
-    max-width: 75%;
-    height: auto;
-    margin-bottom: 0 !important;
-    display: block;
-    padding-bottom: 0 !important;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: -5px;
+  max-width: 75%;
+  height: auto;
+  margin: -5px auto 0 auto;
+  display: block;
 }
 
+/* ================= SUMMARY ================= */
 .summary {
-    background-color: var(--primary-blue); /* Primary Blue for Summary Box */
-    color: white;
-    padding: 5px 0;
-    max-width: 75%;
-    margin: 0 auto !important;
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    border-radius: 0;
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 5px 0;
+  max-width: 75%;
+  margin: 0 auto !important;
 }
 
-.summary h2 {
-    color: white;
-    margin-bottom: 10px;
-    margin-top: 0 !important;
+.summary h2, .summary h3 {
+  color: white;
+  margin-top: 0 !important;
 }
 
 .inner {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 25px 5px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 25px 5px;
 }
 
 .summary-main {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .desc {
-    flex: 2;
-    min-width: 300px;
-    margin-right: 30px;
+  flex: 2;
+  min-width: 300px;
+  margin-right: 30px;
 }
 
 .data {
-    flex: 1;
-    min-width: 250px;
+  flex: 1;
+  min-width: 250px;
 }
 
-.date, .location, .share {
-    margin-bottom: 25px;
-}
-
-/* Agenda */
+/* ================= AGENDA ================= */
 .agenda {
-    padding: 40px 0;
-    background-color: var(--background-light); 
+  padding: 40px 0;
+  background-color: var(--background-light);
 }
 
 .agenda h2 {
-    color: var(--primary-blue); /* Headings in Primary Blue */
-    margin-bottom: 20px;
+  color: var(--primary-blue);
+  margin-bottom: 20px;
 }
 
 .agenda-container {
-    display: block; 
-    overflow-x: hidden; 
+  display: block;
+  overflow-x: hidden;
 }
 
 .agenda-container ul {
-    display: block; 
-    padding: 0;
-    margin: 0;
-    list-style: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .agenda-container li {
-    flex: 0 0 auto;
-    width: 100%; 
-    max-width: 900px; 
-    margin-right: 0; 
-    margin-bottom: 20px;
-}
-
-.agenda-container dl {
-    margin: 0;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 20px;
 }
 
 .agenda-container dt {
-    color: var(--primary-blue); 
-    font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 1.25rem;
+  color: var(--primary-blue);
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 1.25rem;
 }
 
-/* Base style for agenda content */
 .agenda-content {
-    background-color: #e6f7ff;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  background-color: #e6f7ff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
-/* Alternating Background Colors for Agenda Content */
 .agenda-container li:nth-child(odd) .agenda-content {
-    background-color: #f0f8ff; 
+  background-color: #f0f8ff;
 }
 
 .agenda-container li:nth-child(even) .agenda-content {
-    background-color: #e6f7ff; 
+  background-color: #e6f7ff;
 }
 
 .agenda-time {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: var(--dark-accent);
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--dark-accent);
 }
 
 .agenda-item-break {
-    background-color: #b3e5fc !important;
-    color: var(--dark-accent);
-    font-weight: bold;
-    text-align: center;
+  background-color: #b3e5fc !important;
+  color: var(--dark-accent);
+  font-weight: bold;
+  text-align: center;
 }
 
-/* ---------------- SPEAKER SECTION ---------------- */
+/* ================= SPEAKERS ================= */
 .speaker {
   text-align: center;
   padding: 60px 40px;
@@ -269,14 +258,6 @@ header.inverted-colors {
   color: #5da385;
   font-size: 2rem;
   margin-bottom: 10px;
-}
-
-.speaker hr {
-  width: 80%;
-  margin: 0 auto 40px;
-  border: 0;
-  height: 1px;
-  background-color: #ccc;
 }
 
 .speakers-module {
@@ -321,20 +302,215 @@ header.inverted-colors {
   margin: 0;
 }
 
-/* Responsive layout */
+/* ================= SPONSORS ================= */
+.sponsor {
+  padding: 40px 0;
+  background-color: var(--background-light);
+}
+
+.sponsor h2 {
+  color: var(--primary-blue);
+  margin-bottom: 20px;
+}
+
+.group-title {
+  font-weight: bold;
+  margin: 25px 0 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.sponsors-partners-module {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0 -15px;
+}
+
+.sponsors-partners-module li {
+  flex: 0 0 auto;
+  margin: 0 15px 20px;
+}
+
+.sponsors-partners-module img {
+  max-width: 150px;
+  height: auto;
+}
+
+/* ================= PACKAGES ================= */
+.packages {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.packages h2 {
+  color: #20392e;
+  margin-bottom: 40px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.packages .packages-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.package-card {
+  background-color: var(--accent-blue, #004aad);
+  border-radius: 10px;
+  padding: 25px;
+  color: #fff;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.package-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.package-card ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #f5f5f5;
+}
+
+.package-card ul li img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #ffdf00;
+  margin-top: 15px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background-color: var(--dark-accent);
+  color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.link-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.gu-logo {
+  max-width: 40px;
+  height: auto;
+  margin-right: 15px;
+  display: block;
+  object-fit: contain;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.powered-by {
+  font-weight: bold;
+}
+
+.copy-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 15px;
+}
+
+.copy-right a {
+  color: #81d4fa;
+  margin-left: 15px;
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 992px) {
-  .speakers-module {
-    gap: 30px;
+  .main-nav {
+    width: 95%;
+    justify-content: center;
+    flex-wrap: wrap;
+    top: 36px;
   }
-  .person-representation {
-    width: 130px;
-    height: 130px;
+
+  .nav-block {
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .main-nav a {
+    padding: 10px 15px;
+    text-align: center;
+    flex: 1 1 auto;
+  }
+
+  .nav-container button {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .banner img, .summary {
+    max-width: 100%;
+    margin-top: 40px;
+  }
+
+  .summary-main {
+    flex-direction: column;
+  }
+
+  .desc {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .data {
+    min-width: 100%;
+  }
+
+  .inner {
+    padding: 25px 15px;
+  }
+
+  .packages .packages-container {
+    grid-template-columns: 1fr; /* Stack packages on tablet/mobile */
   }
 }
 
 @media (max-width: 768px) {
   .speakers-module li {
-    flex: 1 1 45%;
+    flex: 1 0 calc(50% - 20px);
+  }
+
+  .banner {
+    margin-top: 80px;
   }
 }
 
@@ -342,247 +518,18 @@ header.inverted-colors {
   .speakers-module li {
     flex: 1 1 100%;
   }
+
   .person-representation {
     width: 100px;
     height: 100px;
   }
+
+  .banner {
+    margin-top: 100px;
+  }
 }
 
-
-
-/* Sponsors */
-.sponsor {
-    padding: 40px 0;
-    background-color: var(--background-light); 
+/* ================= SCROLL-SPY ================= */
+#home, #agenda, #speakers, #sponsors, #tickets {
+  scroll-margin-top: 96px;
 }
-
-.sponsor h2 {
-    color: var(--primary-blue); 
-    margin-bottom: 20px;
-}
-
-.group-title {
-    font-weight: bold;
-    margin: 25px 0 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.sponsors-partners-module {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0 -15px;
-}
-
-.sponsors-partners-module li {
-    flex: 0 0 auto;
-    margin: 0 15px 20px;
-}
-
-.sponsors-partners-module img {
-    max-width: 150px;
-    height: auto;
-}
-
-/* Tickets */
-.ticket {
-    padding: 40px 0;
-    background-color: #ffffff; 
-    border-top: 1px solid #e0e0e0;
-}
-
-.ticket h2 {
-    color: var(--primary-blue); 
-    margin-bottom: 20px;
-}
-
-.tickets-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -15px;
-}
-
-.tickets-container dl {
-    flex: 1 0 250px;
-    margin: 0 15px 30px;
-    background-color: var(--background-light); 
-    padding: 20px;
-    border-radius: 8px; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
-}
-
-.tickets-container dt {
-    color: var(--primary-blue); 
-    font-weight: bold;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #b3e5fc;
-}
-
-.tickets-container dd {
-    margin: 0 0 15px;
-}
-
-.price {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-}
-
-/* Footer */
-footer {
-    background-color: var(--dark-accent); 
-    color: white;
-    padding: 40px 0;
-}
-
-.link-block {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.gu-logo {
-  max-width: 40px;     /* hard limit */
-  height: auto;         /* keeps aspect ratio */
-  margin-right: 15px;
-  display: block;
-  object-fit: contain;
-}
-
-
-.link-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.powered-by {
-    font-weight: bold;
-}
-
-.copy-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 0 15px; /* Added padding for spacing on mobile */
-}
-
-.copy-right a {
-    color: #81d4fa; 
-    margin-left: 15px;
-}
-
-/* ----------------------------------------------------------------- */
-/* RESPONSIVE IMPROVEMENTS - GENERAL & TABLET */
-/* ----------------------------------------------------------------- */
-
-@media (max-width: 992px) {
-    /* Tablet/Mid-Sized Screens: Show 3 speakers per row */
-    .speakers-module li {
-        flex: 1 0 calc(33.33% - 30px); /* 3 columns minus horizontal margin */
-    }
-}
-
-
-@media (max-width: 768px) {
-    /* 1. Header/Navigation Fixes */
-    body {
-        padding-top: 86px; 
-    }
-    
-    .main-nav {
-        width: 100%; 
-        margin-left: 0; 
-    }
-
-    .nav-block {
-        flex-wrap: wrap;
-        justify-content: space-around; 
-    }
-
-    .main-nav a {
-        padding: 10px 10px;
-        flex: 1 1 auto; 
-        text-align: center;
-        font-size: 0.9rem;
-    }
-    
-    /* 2. Banner/Summary Fixes */
-    .banner img, .summary {
-        max-width: 100%; 
-        margin-top: 40px;
-    }
-    
-    .summary-main {
-        flex-direction: column;
-    }
-
-    .desc {
-        margin-right: 0;
-        margin-bottom: 30px;
-    }
-    
-    .data {
-        min-width: 100%; 
-    }
-
-    .inner {
-        padding: 25px 15px; 
-    }
-
-    /* 4. Tickets Module Fixes */
-    .tickets-container dl {
-        flex: 1 0 100%; 
-        margin: 0 0 20px 0; 
-        padding: 15px;
-    }
-    
-    .tickets-container {
-        margin: 0; 
-        flex-direction: column;
-    }
-
-    /* 5. Agenda (Re-confirmed) */
-    .agenda-container li {
-        width: 100%;
-        margin-right: 0;
-        max-width: none; 
-    }
-}
-
-@media (max-width: 576px) {
-    /* Extra Small Screens (Phones): No change needed here, inherits 100% width from 768px rule */
-    /* Removed the conflicting 50% rule */
-}
-/* Add this to your styles.css file */
-
-/* ----------------------------------------------------------------- */
-/* Scroll-Spy and Anchor Fix */
-/* ----------------------------------------------------------------- */
-
-/* Use the IDs of your main content sections for anchor targeting */
-#home,
-#agenda,
-#speakers,
-#sponsors {
-    /* This creates space at the top of the section equal to the height of your fixed header (Top bar + Nav bar)
-       so the fixed navigation bar doesn't cover the heading when an anchor link is clicked. */
-    scroll-margin-top: 96px; 
-}
-
-/* Ensure your nav links use the new class for targeting in JS, but the styling remains the same */
-.main-nav a.nav-link.selected, 
-.main-nav a.nav-link:hover {
-    background-color: var(--accent-blue); 
-}
-/* Ensure the desktop style is specific enough to avoid conflicts with JS */
-.main-nav a.nav-link {
-    color: white;
-    padding: 15px 20px;
-    display: inline-block;
-    text-align: center; 
-}
-
