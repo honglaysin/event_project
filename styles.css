@@ -176,9 +176,27 @@ header.inverted-colors {
 }
 
 .data {
-  flex: 1;
-  min-width: 250px;
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* space between event items */
 }
+
+.event-item p {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between icon and text */
+    margin: 4px 0;
+    font-size: 0.95rem;
+}
+
+.event-item p img {
+    width: 20px;   /* icon width */
+    height: 20px;  /* icon height */
+    object-fit: contain;
+}
+
 
 /* ================= AGENDA ================= */
 .agenda {
