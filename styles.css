@@ -211,25 +211,47 @@ header.inverted-colors {
 
 /* responsive images in data */
 .data img {
-  width: 100%;
+  width: 25px;
   height: auto;
   object-fit: cover;
   border-radius: 0;
+  top: 5px;
 }
-
-/* ================= EVENT ITEMS ================= */
-.event-item p {
+.article {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 6px 0;
-  font-size: 0.95rem;
+  justify-content: center;
+  font-size: 1rem;
+}
+/* ================= EVENT ITEMS ================= */
+/* ================= AGENDA IMAGES ================= */
+.agenda-images {
+  display: flex;
+  gap: 20px;              /* space between images */
+  justify-content: center; /* center the images horizontally */
+  flex-wrap: wrap;         /* wrap on smaller screens */
+  margin-top: 20px;
 }
 
-.event-item p img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
+.agenda-images img {
+  width: 45%;              /* two images side by side */
+  max-width: 500px;        /* optional max width */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.agenda-images img:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .agenda-images img {
+    width: 100%;           /* full width on tablets/mobile */
+    max-width: 100%;
+  }
 }
 
 /* ================= SWIPER ================= */
@@ -297,41 +319,41 @@ header.inverted-colors {
 }
 
 
-/* ================= AGENDA ================= */
 .agenda {
   padding: 40px 0;
   background-color: var(--background-light);
+  max-width: 900px;       /* limit the width */
+  margin: 0 auto;         /* center the section */
+  text-align: center;     /* center heading */
 }
 
 .agenda h2 {
   color: var(--primary-blue);
   margin-bottom: 20px;
 }
-
 .agenda-container ul {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;         /* center the list */
   list-style: none;
 }
 
 .agenda-container li {
   width: 100%;
-  max-width: 900px;
   margin-bottom: 20px;
 }
 
 .agenda-content {
   background-color: #e6f7ff;
   padding: 15px;
-  margin-bottom: 10px;
+  margin: 0 auto 10px;    /* center each item */
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  text-align: left;        /* keep content left-aligned */
 }
 
 .agenda-container li:nth-child(odd) .agenda-content {
   background-color: #f0f8ff;
 }
-
 .agenda-time {
   font-weight: bold;
   margin-bottom: 5px;
@@ -353,7 +375,7 @@ header.inverted-colors {
 }
 
 .speaker h2 {
-  color: #5da385;
+  color: var(--accent-blue);
   font-size: 2rem;
   margin-bottom: 10px;
 }
@@ -401,9 +423,13 @@ header.inverted-colors {
 }
 
 /* ================= SPONSORS ================= */
+/* ================= SPONSORS ================= */
 .sponsor {
   padding: 40px 0;
+  max-width: 80%;
   background-color: var(--background-light);
+  margin: 0 auto;            /* Center whole section */
+  text-align: center;        /* Center titles */
 }
 
 .sponsor h2 {
@@ -418,23 +444,31 @@ header.inverted-colors {
   border-bottom: 1px solid #e0e0e0;
 }
 
+/* Sponsor logos */
 .sponsors-partners-module {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;   /* Center logos */
+  align-items: center;
   list-style: none;
   padding: 0;
-  margin: 0 -15px;
+  margin: 0 auto;
 }
 
 .sponsors-partners-module li {
   flex: 0 0 auto;
-  margin: 0 15px 20px;
+  margin: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sponsors-partners-module img {
   max-width: 150px;
   height: auto;
+  object-fit: contain;
 }
+
 
 /* ================= PACKAGES ================= */
 .packages {
@@ -504,11 +538,11 @@ header.inverted-colors {
 }
 
 /* ================= FOOTER ================= */
+/* Footer */
 .site-footer {
   background-color: #0f2a47;
   color: #ffffff;
   padding: 50px 20px 20px;
-  margin-top: 60px;
   font-size: 0.95rem;
 }
 
@@ -539,12 +573,6 @@ header.inverted-colors {
   color: #ffffff;
 }
 
-.site-footer h3 {
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-  color: #f2f2f2;
-}
-
 .footer-about,
 .footer-contact,
 .footer-social {
@@ -555,7 +583,7 @@ header.inverted-colors {
   margin-top: 10px;
   display: flex;
   gap: 20px;
-  justify-content: center;
+  justify-content: start;
 }
 
 .qr-item {
@@ -570,27 +598,21 @@ header.inverted-colors {
   padding: 5px;
 }
 
-.footer-social-icons {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 18px;
-  margin-top: 20px;
+.footer-terms a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #ffffff;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.footer-social-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 12px;
+.footer-social h3 {
+  margin-bottom: 15px;
 }
 
 .social-row {
   display: flex;
   gap: 16px;
-  justify-content: center;
-  align-items: center;
 }
 
 .social-row a {
@@ -609,10 +631,9 @@ header.inverted-colors {
   transform: translateY(-3px);
 }
 
-.social-row svg {
+.social-row img {
   width: 22px;
   height: 22px;
-  fill: #fff;
 }
 
 .footer-bottom {
@@ -622,8 +643,66 @@ header.inverted-colors {
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.9rem;
   color: #dddddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
+.footer-bottom a {
+  color: #ffffff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* ================ Model ==================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: var(--accent-blue);
+  margin: 50px auto;
+  padding: 20px 30px;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.modal-content h2, .modal-content h3 {
+  margin-top: 0;
+}
+
+.modal-content .terms-text {
+  max-height: 70vh;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.modal-content .close {
+  color: #333;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-content .close:hover {
+  color: #000;
+}
+.terms-text{
+  color: #000;
+}
 /* ================= RESPONSIVE ================= */
 @media (max-width: 992px) {
   .main-nav {
