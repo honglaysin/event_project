@@ -78,18 +78,17 @@ header.inverted-colors {
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
-  width: 75%;          /* match banner width */
+  width: 75%;          /* 75% of screen width */
   max-width: 1200px;   /* optional max limit */
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0;           /* remove extra padding */
+  padding: 0;
   transition: all 0.3s ease;
   border-radius: 1px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-
 .nav-block {
   display: flex;
   flex-wrap: wrap;
@@ -138,10 +137,9 @@ header.inverted-colors {
   padding: 0;
   margin-bottom: 0;
 }
-
 .banner img {
-  max-width: 75%;       /* match nav width */
-  width: 100%;          /* scale on small screens */
+  width: 75%;           /* match nav width */
+  max-width: 1200px;    /* same max width as nav */
   height: auto;
   margin: 0 auto;
   display: block;
