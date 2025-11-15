@@ -197,6 +197,29 @@ header.inverted-colors {
     object-fit: contain;
 }
 
+/* ================= SWIPER =================*/
+.swiper {
+  width: 370px;
+  height: 250px; /* FIX ALL SLIDE HEIGHT */
+  margin: 20px auto;
+}
+
+.swiper-slide {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;         /* FORCE ALL IMAGES SAME HEIGHT */
+  object-fit: cover;    /* MAKE THEM FIT WITHOUT STRETCHING */
+  object-position: center;
+  border-radius: 10px;  /* OPTIONAL */
+}
+
+
 
 /* ================= AGENDA ================= */
 .agenda {
@@ -421,6 +444,7 @@ header.inverted-colors {
   font-size: 1.2rem;
   color: #ffdf00;
   margin-top: 15px;
+  font-size: 30px;
 }
 
 /* ================= FOOTER ================= */
