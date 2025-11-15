@@ -70,6 +70,60 @@ header.inverted-colors {
   transform: scale(1.2);
 }
 
+/* Language Switcher */
+.language-switcher {
+  position: absolute;
+  top: 15px;
+  right: 100px;
+  z-index: 10;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.language-switcher select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  background-color: var(--accent-blue);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-switcher select:hover {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+.language-switcher select option {
+  color: #20392e;
+  background-color: #fff;
+}
+
+/* Responsive Language */
+@media screen and (max-width: 1200px) {
+  .language-switcher { right: 60px; }
+}
+
+@media screen and (max-width: 768px) {
+  .language-switcher {
+    position: static;
+    margin: 10px 0;
+  }
+  
+  .language-switcher select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .language-switcher select { font-size: 14px; }
+}
+
 /* ================= MAIN NAV ================= */
 .main-nav {
   background-color: var(--primary-blue);
@@ -176,31 +230,31 @@ header.inverted-colors {
 }
 
 .data {
-    flex: 1;
-    min-width: 250px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px; /* space between event items */
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .event-item p {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* space between icon and text */
-    margin: 4px 0;
-    font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0;
+  font-size: 0.95rem;
 }
 
 .event-item p img {
-    width: 20px;   /* icon width */
-    height: 20px;  /* icon height */
-    object-fit: contain;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
-/* ================= SWIPER =================*/
+/* ================= SWIPER ================= */
 .swiper {
   width: 370px;
-  height: 250px; /* FIX ALL SLIDE HEIGHT */
+  height: 250px;
   margin: 20px auto;
 }
 
@@ -213,13 +267,11 @@ header.inverted-colors {
 
 .swiper-slide img {
   width: 100%;
-  height: 100%;         /* FORCE ALL IMAGES SAME HEIGHT */
-  object-fit: cover;    /* MAKE THEM FIT WITHOUT STRETCHING */
+  height: 100%;
+  object-fit: cover;
   object-position: center;
-  border-radius: 10px;  /* OPTIONAL */
+  border-radius: 10px;
 }
-
-
 
 /* ================= AGENDA ================= */
 .agenda {
@@ -232,30 +284,16 @@ header.inverted-colors {
   margin-bottom: 20px;
 }
 
-.agenda-container {
-  display: block;
-  overflow-x: hidden;
-}
-
 .agenda-container ul {
-  display: block;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
 .agenda-container li {
-  flex: 0 0 auto;
   width: 100%;
   max-width: 900px;
   margin-bottom: 20px;
-}
-
-.agenda-container dt {
-  color: var(--primary-blue);
-  font-weight: bold;
-  margin-bottom: 10px;
-  font-size: 1.25rem;
 }
 
 .agenda-content {
@@ -270,12 +308,7 @@ header.inverted-colors {
   background-color: #f0f8ff;
 }
 
-.agenda-container li:nth-child(even) .agenda-content {
-  background-color: #e6f7ff;
-}
-
 .agenda-time {
-  display: block;
   font-weight: bold;
   margin-bottom: 5px;
   color: var(--dark-accent);
@@ -441,15 +474,12 @@ header.inverted-colors {
 
 .price {
   font-weight: bold;
-  font-size: 1.2rem;
-  color: #ffdf00;
-  margin-top: 15px;
   font-size: 30px;
+  margin-top: 15px;
+  color: #ffdf00;
 }
 
 /* ================= FOOTER ================= */
-/* ========== FOOTER ========== */
-
 .site-footer {
   background-color: #0f2a47;
   color: #ffffff;
@@ -467,7 +497,6 @@ header.inverted-colors {
   flex-wrap: wrap;
 }
 
-/* Logo Section */
 .footer-logo {
   flex: 1 1 200px;
   text-align: left;
@@ -498,11 +527,11 @@ header.inverted-colors {
   flex: 1 1 250px;
 }
 
-/* QR Code Section */
 .qr-box {
   margin-top: 10px;
   display: flex;
   gap: 20px;
+  justify-content: center;
 }
 
 .qr-item {
@@ -517,27 +546,12 @@ header.inverted-colors {
   padding: 5px;
 }
 
-/* Social Icons */
-/* Social Footer Section */
 .footer-social-icons {
   text-align: center;
   display: flex;
-  flex-direction: column;     /* title on top, icons below */
+  flex-direction: column;
   align-items: center;
-  gap: 18px;                  /* spacing between title + icons */
-  margin-top: 20px;
-}
-
-.footer-social-title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #fff;
-  margin: 0;
-}
-
-/* Social Icons Row */
-.footer-social-icons {
-  text-align: center;
+  gap: 18px;
   margin-top: 20px;
 }
 
@@ -548,15 +562,13 @@ header.inverted-colors {
   margin-bottom: 12px;
 }
 
-/* Icons row */
 .social-row {
-  display: flex;              /* <-- THIS makes icons go side by side */
-  gap: 16px;                  /* spacing between icons */
+  display: flex;
+  gap: 16px;
   justify-content: center;
   align-items: center;
 }
 
-/* Icon button style */
 .social-row a {
   width: 42px;
   height: 42px;
@@ -579,7 +591,6 @@ header.inverted-colors {
   fill: #fff;
 }
 
-/* Bottom */
 .footer-bottom {
   text-align: center;
   margin-top: 40px;
@@ -588,28 +599,6 @@ header.inverted-colors {
   font-size: 0.9rem;
   color: #dddddd;
 }
-
-/* Responsive */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-logo {
-    text-align: center;
-  }
-
-  .qr-box {
-    justify-content: center;
-  }
-
-  .social-icons {
-    justify-content: center;
-  }
-}
-
-
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 992px) {
@@ -662,7 +651,7 @@ header.inverted-colors {
   }
 
   .packages .packages-container {
-    grid-template-columns: 1fr; /* Stack packages on tablet/mobile */
+    grid-template-columns: 1fr;
   }
 }
 
@@ -688,6 +677,11 @@ header.inverted-colors {
 
   .banner {
     margin-top: 100px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
