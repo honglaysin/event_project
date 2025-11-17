@@ -51,6 +51,28 @@ header.inverted-colors {
   margin: 0 auto;
   padding: 0 20px;
 }
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.language-switch .lang-item {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 3px 6px;
+  transition: 0.2s ease;
+}
+
+.language-switch .lang-item:hover {
+  color: #ffd700; /* golden hover color */
+}
+
+.language-switch .divider {
+  color: #ccc;
+  font-weight: 300;
+}
 
 /* ================= SOCIAL ICONS ================= */
 .social-sharing {
@@ -632,8 +654,8 @@ header.inverted-colors {
 }
 
 .social-row img {
-  width: 22px;
-  height: 22px;
+  width: 40px;
+  height: 40px;
 }
 
 .footer-bottom {
