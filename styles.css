@@ -477,7 +477,11 @@ header.inverted-colors {
   padding: 0;
   margin: 0 auto;
 }
-
+.sponsors-partners-module .news-logo img{
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+}
 .sponsors-partners-module li {
   flex: 0 0 auto;
   margin: 10px 20px;
@@ -491,6 +495,17 @@ header.inverted-colors {
   height: auto;
   object-fit: contain;
 }
+.exclusive-sponsor img {
+  max-width: 250px;   
+  height: auto;
+  object-fit: contain;
+}
+.group-title + .sponsors-partners-module li .news-logo {
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
 
 
 /* ================= PACKAGES ================= */
