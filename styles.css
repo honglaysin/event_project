@@ -578,7 +578,15 @@ header.inverted-colors {
   margin-top: 15px;
   color: #ffdf00;
 }
-
+.package-card h3 {
+  margin: 1px 0; /* smaller gap */
+}
+.package-card .price {
+  margin: 4px 0; /* smaller gap */
+}
+.package-card .highlight {
+  padding: 0;    /* ensure no extra spacing */
+}
 /* ================= FOOTER ================= */
 /* Footer */
 .site-footer {
