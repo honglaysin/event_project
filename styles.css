@@ -445,7 +445,6 @@ header.inverted-colors {
 }
 
 /* ================= SPONSORS ================= */
-/* ================= SPONSORS ================= */
 .sponsor {
   padding: 40px 0;
   max-width: 80%;
@@ -506,7 +505,19 @@ header.inverted-colors {
   object-fit: contain;
 }
 
+.sponsors-partners-module li .bigger-logo {
+    width: 300px !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: contain;
+}
 
+.sponsors-partners-module li .smaller-logo {
+    width: 100px !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: contain;
+}
 
 /* ================= PACKAGES ================= */
 .packages {
