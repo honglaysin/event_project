@@ -523,7 +523,12 @@ header.inverted-colors {
   max-width: 100% !important;
   object-fit: contain;
 }
-
+.sponsors-partners-module li .bigger-sponsor-logo {
+  width: 500px !important;
+  height: auto !important;
+  max-width: 100% !important;
+  object-fit: contain;
+}
 /* ================= PACKAGES ================= */
 .packages {
   padding: 60px 20px;
