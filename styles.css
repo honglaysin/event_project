@@ -516,7 +516,12 @@ header.inverted-colors {
   max-width: 100% !important;
   object-fit: contain;
 }
-
+.sponsors-partners-module li .smaller-s-logo {
+  width: 60px !important;
+  height: auto !important;
+  max-width: 100% !important;
+  object-fit: contain;
+}
 .sponsors-partners-module li .smaller-logo {
   width: 100px !important;
   height: auto !important;
@@ -559,6 +564,7 @@ header.inverted-colors {
   max-width: 100% !important;
   object-fit: contain;
 }
+
 .sponsors-partners-module li .tnaot {
   width: 150px !important;
   height: auto !important;
