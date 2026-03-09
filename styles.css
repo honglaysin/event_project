@@ -349,7 +349,7 @@ header.inverted-colors {
 .agenda {
   padding: 40px 0;
   background-color: var(--background-light);
-  max-width: 900px; /* limit the width */
+  max-width: 80%; /* limit the width */
   margin: 0 auto; /* center the section */
   text-align: center; /* center heading */
 }
@@ -512,6 +512,12 @@ header.inverted-colors {
 
 .sponsors-partners-module li.kps-logo img {
   width: 120px !important;
+  height: auto !important;
+  max-width: 100% !important;
+  object-fit: contain;
+}
+.sponsors-partners-module li .smaller-sl-logo {
+  width: 50px !important;
   height: auto !important;
   max-width: 100% !important;
   object-fit: contain;
